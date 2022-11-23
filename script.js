@@ -13,10 +13,25 @@ function fetchData() {
         array = data;
         array.map(function (e) {
             var capo = new Capo(e.id, e.codprod, e.collezione, e.capo, e.modello, e.quantita, e.colore, e.prezzoivaesclusa, e.prezzoivainclusa, e.disponibile, e.saldo);
-            console.log(capo);
-            console.log("Sconto sul capo: ", capo.getsaldocapo());
-            console.log("Prezzo finale del capo: ", capo.getacquistocapo());
-            table.innerHTML += "\n                <tr>\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.codprod, "</td>\n                    <td>").concat(e.collezione, "</td>\n                    <td>").concat(e.capo, "</td>\n                    <td>").concat(e.modello, "</td>\n                    <td>").concat(e.quantita, "</td>\n                    <td>").concat(e.colore, "</td>\n                    <td>").concat(e.prezzoivaesclusa, " &euro;</td>\n                    <td class=\"table-warning\">").concat(e.prezzoivainclusa, " &euro;</td>\n                    <td>").concat(e.disponibile, "</td>\n                    <td>").concat(e.saldo, "&percnt;</td>\n                    <td>").concat(capo.getsaldocapo().toFixed(2), " &euro;</td>\n                    <td class=\"table-success fw-bold\">").concat(capo.getacquistocapo().toFixed(2), " &euro;</td>\n                </tr>\n                ");
+            var color;
+            switch (e.colore) {
+                case "nero":
+                    color = "dark";
+                    break;
+                case "rosso":
+                    color = "danger";
+                    break;
+                case "beige":
+                    color = "warning";
+                    break;
+                case "verde":
+                    color = "success";
+                    break;
+                case "blu":
+                    color = "primary";
+                    break;
+            }
+            table.innerHTML += "\n                <tr>\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.codprod, "</td>\n                    <td>").concat(e.collezione, "</td>\n                    <td>").concat(e.capo, "</td>\n                    <td>").concat(e.modello, "</td>\n                    <td>").concat(e.quantita, "</td>\n                    <td class=\"table-").concat(color, "\">").concat(e.colore, "</td>\n                    <td>").concat(e.prezzoivaesclusa, " &euro;</td>\n                    <td class=\"table-warning\">").concat(e.prezzoivainclusa, " &euro;</td>\n                    <td>").concat(e.disponibile, "</td>\n                    <td>").concat(e.saldo, "&percnt;</td>\n                    <td>").concat(capo.getsaldocapo().toFixed(2), " &euro;</td>\n                    <td class=\"table-success fw-bold\">").concat(capo.getacquistocapo().toFixed(2), " &euro;</td>\n                </tr>\n                ");
         });
     });
 }

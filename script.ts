@@ -16,11 +16,26 @@ function fetchData() {
             array = data;
             array.map((e) => {
                 let capo = new Capo(e.id, e.codprod, e.collezione, e.capo, e.modello, e.quantita, e.colore, e.prezzoivaesclusa, e.prezzoivainclusa, e.disponibile, e.saldo);
-                
-                console.log(capo);
-                console.log("Sconto sul capo: ", capo.getsaldocapo());
-                console.log("Prezzo finale del capo: ", capo.getacquistocapo());
+                let color: string;
 
+                switch (e.colore) {
+                    case "nero":
+                        color = "dark";
+                        break;
+                    case "rosso":
+                        color = "danger";
+                        break;
+                    case "beige":
+                        color = "warning";
+                        break;
+                    case "verde":
+                        color = "success";
+                        break;
+                    case "blu":
+                        color = "primary";
+                        break;
+                }
+                
                 table.innerHTML += `
                 <tr>
                     <th scope="row">${e.id}</th>
@@ -29,7 +44,7 @@ function fetchData() {
                     <td>${e.capo}</td>
                     <td>${e.modello}</td>
                     <td>${e.quantita}</td>
-                    <td>${e.colore}</td>
+                    <td class="table-${color}">${e.colore}</td>
                     <td>${e.prezzoivaesclusa} &euro;</td>
                     <td class="table-warning">${e.prezzoivainclusa} &euro;</td>
                     <td>${e.disponibile}</td>
