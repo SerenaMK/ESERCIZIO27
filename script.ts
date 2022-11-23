@@ -1,4 +1,8 @@
+// ATTENZIONE!!!
+// APRIRE INDEX.HTML PER VEDERE LA TABELLA!
+
 var array = [];
+var table = document.getElementById("table") as HTMLElement;
 
 fetchData();
 
@@ -16,6 +20,24 @@ function fetchData() {
                 console.log(capo);
                 console.log("Sconto sul capo: ", capo.getsaldocapo());
                 console.log("Prezzo finale del capo: ", capo.getacquistocapo());
+
+                table.innerHTML += `
+                <tr>
+                    <th scope="row">${e.id}</th>
+                    <td>${e.codprod}</td>
+                    <td>${e.collezione}</td>
+                    <td>${e.capo}</td>
+                    <td>${e.modello}</td>
+                    <td>${e.quantita}</td>
+                    <td>${e.colore}</td>
+                    <td>${e.prezzoivaesclusa} &euro;</td>
+                    <td class="table-warning">${e.prezzoivainclusa} &euro;</td>
+                    <td>${e.disponibile}</td>
+                    <td>${e.saldo}&percnt;</td>
+                    <td>${capo.getsaldocapo().toFixed(2)} &euro;</td>
+                    <td class="table-success fw-bold">${capo.getacquistocapo().toFixed(2)} &euro;</td>
+                </tr>
+                `;
             })
         })
 }
