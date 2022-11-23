@@ -30,8 +30,10 @@ function fetchData() {
                 case "blu":
                     color = "primary";
                     break;
+                default:
+                    color = "light";
             }
-            table.innerHTML += "\n                <tr>\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.codprod, "</td>\n                    <td>").concat(e.collezione, "</td>\n                    <td>").concat(e.capo, "</td>\n                    <td>").concat(e.modello, "</td>\n                    <td>").concat(e.quantita, "</td>\n                    <td class=\"table-").concat(color, "\">").concat(e.colore, "</td>\n                    <td>").concat(e.prezzoivaesclusa, " &euro;</td>\n                    <td class=\"table-warning\">").concat(e.prezzoivainclusa, " &euro;</td>\n                    <td>").concat(e.disponibile, "</td>\n                    <td>").concat(e.saldo, "&percnt;</td>\n                    <td>").concat(capo.getsaldocapo().toFixed(2), " &euro;</td>\n                    <td class=\"table-success fw-bold\">").concat(capo.getacquistocapo().toFixed(2), " &euro;</td>\n                </tr>\n                ");
+            table.innerHTML += "\n                <tr>\n                    <th scope=\"row\">".concat(e.id, "</th>\n                    <td>").concat(e.codprod, "</td>\n                    <td>").concat(e.collezione, "</td>\n                    <td>").concat(e.capo, "</td>\n                    <td>").concat(e.modello, "</td>\n                    <td class=\"border-end border-dark\">").concat(e.quantita, "</td>\n                    <td class=\"table-").concat(color, " border border-dark\">").concat(e.colore, "</td>\n                    <td>").concat(e.prezzoivaesclusa, " &euro;</td>\n                    <td class=\"table-warning\">").concat(e.prezzoivainclusa, " &euro;</td>\n                    <td>").concat(e.disponibile, "</td>\n                    <td>").concat(e.saldo, "&percnt;</td>\n                    <td>").concat(capo.getsaldocapo().toFixed(2), " &euro;</td>\n                    <td class=\"table-success fw-bold\">").concat(capo.getacquistocapo().toFixed(2), " &euro;</td>\n                </tr>\n                ");
         });
     });
 }

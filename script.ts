@@ -34,6 +34,8 @@ function fetchData() {
                     case "blu":
                         color = "primary";
                         break;
+                    default:
+                        color = "light";
                 }
                 
                 table.innerHTML += `
@@ -43,8 +45,8 @@ function fetchData() {
                     <td>${e.collezione}</td>
                     <td>${e.capo}</td>
                     <td>${e.modello}</td>
-                    <td>${e.quantita}</td>
-                    <td class="table-${color}">${e.colore}</td>
+                    <td class="border-end border-dark">${e.quantita}</td>
+                    <td class="table-${color} border border-dark">${e.colore}</td>
                     <td>${e.prezzoivaesclusa} &euro;</td>
                     <td class="table-warning">${e.prezzoivainclusa} &euro;</td>
                     <td>${e.disponibile}</td>
